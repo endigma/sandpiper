@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"text/template"
 
-	"sandpiper/modes/minecraft"
+	"github.com/endigma/sandpiper/modes/minecraft"
 
 	log "github.com/sirupsen/logrus"
 )
