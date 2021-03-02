@@ -1,11 +1,12 @@
 package main
 
+// import "fmt"
+
 import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
 	"os"
-	"path/filepath"
 	"text/template"
 
 	"github.com/endigma/sandpiper/modes/minecraft"
@@ -13,8 +14,9 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-var basePath string
 var config Config
+var basePath string
+var docker bool
 
 // Config contains the entire config file
 type Config struct {
@@ -68,9 +70,8 @@ func checkErr(err error) {
 }
 
 func unpackConfig() Config {
-	configFile, err := os.Open(basePath + "/config.json")
+	configFile, err := os.Open(os.Args[1])
 
-	checkErr(err)
 	defer configFile.Close()
 
 	byteValue, err := ioutil.ReadAll(configFile)
@@ -87,11 +88,9 @@ func unpackConfig() Config {
 }
 
 func init() {
-
-	ex, err := os.Executable()
-	checkErr(err)
-
-	basePath = filepath.Dir(ex)
+	if _, err := os.Stat(os.Args[1]); os.IsNotExist(err) {
+		log.Fatal("Please provide a valid config file.")
+	}
 
 	config = unpackConfig()
 
@@ -99,8 +98,6 @@ func init() {
 	for i := 0; i < len(config.Monitors); i++ {
 		config.Counter[config.Monitors[i].Mode] = true
 	}
-
-	log.Info(config.Counter)
 
 	updateMonitors()
 }
@@ -114,12 +111,12 @@ func updateMonitors() {
 
 func handle(w http.ResponseWriter, r *http.Request) {
 	go updateMonitors()
-	tmpl := template.Must(template.ParseFiles("./assets/statuspage.html"))
+	tmpl := template.Must(template.ParseFiles("/assets/statuspage.html"))
 	tmpl.Execute(w, config)
 }
 
 func main() {
-	fs := http.FileServer(http.Dir("./assets/static"))
+	fs := http.FileServer(http.Dir("/assets/static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 	http.Handle("/favicon.ico", http.StripPrefix("/static/", fs))
 
