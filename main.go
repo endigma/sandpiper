@@ -88,6 +88,10 @@ func unpackConfig() Config {
 }
 
 func init() {
+	if len(os.Args) == 1 {
+		log.Fatal("Please provide a valid config file.")
+	}
+
 	if _, err := os.Stat(os.Args[1]); os.IsNotExist(err) {
 		log.Fatal("Please provide a valid config file.")
 	}
