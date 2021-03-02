@@ -1,0 +1,11 @@
+version: "3"
+services:
+  sandpiper:
+    container_name: sandpiper
+    build: .
+    environment:
+      DOCKER: "TRUE"
+    volumes:
+      - ./config-example.json:/assets/config.json
+    ports:
+      - "8022:8022"

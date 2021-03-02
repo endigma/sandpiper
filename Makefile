@@ -1,3 +1,9 @@
-run:
-	@cd src; go build -o ../bin/sandpiper
-	@./bin/sandpiper
+development:
+	@go build -o bin/sandpiper
+
+docker:
+	@docker build -t endigma/sandpiper:latest .
+
+compose:
+	@docker-compose build
+	@docker-compose up
