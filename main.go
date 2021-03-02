@@ -111,12 +111,12 @@ func updateMonitors() {
 
 func handle(w http.ResponseWriter, r *http.Request) {
 	go updateMonitors()
-	tmpl := template.Must(template.ParseFiles("/assets/statuspage.html"))
+	tmpl := template.Must(template.ParseFiles("assets/statuspage.html"))
 	tmpl.Execute(w, config)
 }
 
 func main() {
-	fs := http.FileServer(http.Dir("/assets/static"))
+	fs := http.FileServer(http.Dir("assets/static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 	http.Handle("/favicon.ico", http.StripPrefix("/static/", fs))
 
