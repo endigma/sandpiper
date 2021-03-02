@@ -9,7 +9,7 @@ service monitor
 
 set something like this if you want it to display dynamic sleeping
 
-the docker bit is unnesessary but thats how i manage sleeping
+the docker bit is unnesessary but thats how I manage sleeping
 
 ```json
 {
