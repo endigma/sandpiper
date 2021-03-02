@@ -93,6 +93,7 @@ tr:nth-child(odd) {
   margin-bottom: 5px;
   font-family: Minecraftia;
   font-size: 12pt;
+  color: white;
   border: #1E150F 2px solid;
   overflow: auto;
   background-image: url("minecraft-background.png");
