@@ -11,11 +11,12 @@ type ServerInfo struct {
 // Chat is a retarded struct that contains chat messages, in all their retarded glory
 type Chat struct {
 	Text          string `json:"text"`
+	Bold          bool   `json:"bold"`
 	Italic        bool   `json:"italic"`
 	Underlined    bool   `json:"underlined"`
 	Strikethrough bool   `json:"strikethrough"`
 	Obfuscated    bool   `json:"obfuscated"`
-	Color         string `json:"bold"`
+	Color         string `json:"color"`
 	Extra         []Chat `json:"extra"`
 }
 
