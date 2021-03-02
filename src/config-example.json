@@ -1,0 +1,17 @@
+{
+    "port": "8022",
+    "interval": "10s",
+    "monitors": [
+        {
+            "name": "Google",
+            "address": "https://google.ca",
+            "mode": "http"
+        },
+        {
+            "name": "Minecraft Server",
+            "address": "mc.example.com",
+            "port": 25565,
+            "mode": "minecraft"
+        }
+    ]
+}
