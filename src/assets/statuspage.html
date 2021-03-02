@@ -1,0 +1,76 @@
+<html>
+
+<head>
+  <link rel="shortcut icon" type="image/jpg" href="static/favicon.png" />
+  <link href="static/style.css" rel="stylesheet">
+  <link href="static/fonts.css" rel="stylesheet">
+  <meta http-equiv="refresh" content="10">
+</head>
+
+<body>
+  <div class="main">
+
+    <h1 class="text-light">
+      sandpiper
+      <small class="text-muted">server status monitor</small>
+    </h1>
+    {{- if .Counter.http }}
+    <h3 class="text-light">HTTP</h3>
+    <table class="table table-hover table-dark http-table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{- range .Monitors}}
+        {{- if eq .Mode "http" }}
+        <tr>
+          <td>{{- .Name }}</td>
+          {{- if .Status }}
+          <td class="text-success">Up</td>
+          {{- else }}
+          <td class="text-danger">Down</td>
+          {{- end}}
+        </tr>
+        {{- end }}
+        {{- end }}
+      </tbody>
+    </table>
+    {{- end }}
+    {{- if .Counter.minecraft }}
+    <h3 class="text-light">Minecraft</h3>
+    {{- range .Monitors}}
+    {{- if eq .Mode "minecraft" }}
+    <div class="minecraft-card">
+      {{- if ne .Minecraft.Icon "" }}
+      <img class="minecraft-icon" src="{{- .Minecraft.Icon }}" alt="Server Favicon">
+      {{- end }}
+      <div class="minecraft-card-left">
+        <p class="minecraft-data">{{- .Name }}</p>
+        <p class="minecraft-data text-muted">{{- .Minecraft.Description.Text }}</p>
+        {{- range .Minecraft.Description.Extra }}
+        <p class="minecraft-data text-muted">{{- .Text }}</p>
+        {{- end }}
+      </div>
+      <div class="minecraft-card-right">
+        {{- if .Status }}
+        {{- if eq .Minecraft.Version.Name "Sleeping" }}
+        <p class="minecraft-data text-warning">Sleeping</p>
+        {{- else }}
+        <p class="minecraft-data">{{- .Minecraft.Players.CurPlayers }}/{{- .Minecraft.Players.MaxPlayers }} <abbr
+            class="text-success" title="{{- .Minecraft.Version.Name }}">Up</abbr></p>
+        {{- end }}
+        {{- else }}
+        <p class="minecraft-data text-danger">Down</p>
+        {{- end }}
+      </div>
+    </div>
+    {{- end }}
+    {{- end }}
+    {{- end }}
+  </div>
+</body>
+
+</html>

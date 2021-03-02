@@ -1,0 +1,121 @@
+/* sandpiper style sheet */
+
+body {
+  padding: 30px;
+  color: #ddd7ca;
+  background-color: #212733;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #1b1f29;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #282D39;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #8CA6BD;
+}
+
+.text-muted {
+  color: #808080
+}
+
+.text-warning {
+  color: #FFCC66;
+}
+
+.text-success {
+  color: #7EF2AE;
+}
+
+.main {
+  max-width: 720px;
+  margin: auto;
+}
+
+.http-table {
+  max-width: 720px;
+}
+
+table {
+  border: 0.8px solid #07080a;
+  /* margin-bottom: 20px; */
+  border-spacing: 0px;
+  text-align: left;
+  border-collapse: collapse;
+  max-width: 720px;
+  white-space: nowrap;
+}
+
+td, th {
+  border: 0.8px solid #1b202b;
+}
+
+th {
+  background: #282D39;
+  text-align: center;
+  padding: 10px;
+}
+
+tr, td {
+  text-align: left;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background: #282d39;
+}
+
+tr:nth-child(odd) {
+  background: #242933;
+}
+
+.minecraft-card {
+  box-sizing: border-box;
+  padding: 10px;
+  max-width: 720px;
+  min-height: 88px;
+  margin-bottom: 5px;
+  font-family: Minecraftia;
+  font-size: 12pt;
+  border: #1E150F 2px solid;
+  overflow: auto;
+  background-image: url("minecraft-background.png");
+}
+
+.minecraft-card-left {
+  vertical-align: top;
+  clear: none;
+  float: left;
+}
+
+.minecraft-card-right {
+  vertical-align: top;
+  clear: none;
+  float: right;
+}
+
+.minecraft-data {
+  margin: 0;
+}
+
+.minecraft-icon {
+  float: left;
+  margin-right: 10px;
+  /* display: inline-block; */
+}
