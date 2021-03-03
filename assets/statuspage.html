@@ -42,17 +42,21 @@
     {{- end }}
     {{- if .Counter.minecraft }}
     <h3 class="text-light">Minecraft</h3>
+    
     {{- range .Monitors}}
     {{- if eq .Mode "minecraft" }}
+    {{ $savescope := . }}
     <div class="minecraft-card">
       {{- if ne .Minecraft.Icon "" }}
       <img class="minecraft-icon" src="{{- .Minecraft.Icon }}" alt="Server Favicon">
       {{- end }}
       <div class="minecraft-card-left">
         <p class="minecraft-data">{{- .Name }}</p>
-        <p class="minecraft-data text-muted">{{- .Minecraft.Description.Text }}</p>
+        {{- if ne .Minecraft.Description.Text ""}}
+        <p class="minecraft-data text-muted" {{- if ne .Minecraft.Description.Color "" }}style="color: {{ index $savescope.Minecraft.ColorMap .Minecraft.Description.Color }}"{{- end }}>{{- .Minecraft.Description.Text }}</p>
+        {{- end }}
         {{- range .Minecraft.Description.Extra }}
-        <p class="minecraft-data text-muted">{{- .Text }}</p>
+        <p class="minecraft-data text-muted" {{- if ne .Color "" }}style="color: {{ index $savescope.Minecraft.ColorMap .Color }}"{{- end }}>{{- .Text }}</p>
         {{- end }}
       </div>
       <div class="minecraft-card-right">

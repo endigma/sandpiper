@@ -6,6 +6,8 @@ type ServerInfo struct {
 	Players     Players `json:"players"`
 	Description Chat    `json:"description"`
 	Icon        string  `json:"favicon"`
+	// ColorMap    string
+	ColorMap map[string]string
 }
 
 // Chat is a retarded struct that contains chat messages, in all their retarded glory
