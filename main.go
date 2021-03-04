@@ -9,7 +9,7 @@ import (
 	"os"
 	"text/template"
 
-	"github.com/endigma/sandpiper/modes/minecraft"
+	"git.cya.cx/endigma/sandpiper/modes/minecraft"
 
 	log "github.com/sirupsen/logrus"
 )
