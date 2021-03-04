@@ -1,4 +1,4 @@
-module github.com/endigma/sandpiper
+module git.cya.cx/endigma/sandpiper
 
 go 1.15
 
