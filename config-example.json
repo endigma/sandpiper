@@ -1,4 +1,6 @@
 {
+    "title": "sandpiper",
+    "subtitle": "server status monitor",
     "port": "8022",
     "interval": "10s",
     "monitors": [
