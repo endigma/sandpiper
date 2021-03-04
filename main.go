@@ -20,6 +20,8 @@ var docker bool
 
 // Config contains the entire config file
 type Config struct {
+	Title    string    `json:"title"`
+	Subtitle string    `json:"subtitle"`
 	Port     string    `json:"port"`
 	Interval string    `json:"interval"`
 	Monitors []Monitor `json:"monitors"`
