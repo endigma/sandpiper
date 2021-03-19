@@ -12,3 +12,4 @@ COPY ./assets/ /assets
 COPY --from=build-env /go/bin/sandpiper /
 
 CMD ["/sandpiper", "/assets/config.json"]
+LABEL org.opencontainers.image.source=https://github.com/endigma/sandpiper
