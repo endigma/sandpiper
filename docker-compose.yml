@@ -2,6 +2,7 @@ version: "3"
 services:
   sandpiper:
     container_name: sandpiper
+    image: ghcr.io/endigma/sandpiper
     build: .
     environment:
       DOCKER: "TRUE"
