@@ -15,7 +15,7 @@ go build -o bin/sandpiper
 bin/sandpiper <path to config, relative or absolute>
 ```
 
-or use the dockerfile/makefile to build docker containers.
+or use the dockerfile/makefile to build docker container image
 
 ## config
 
