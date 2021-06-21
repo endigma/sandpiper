@@ -79,3 +79,4 @@ the docker bit is unnesessary but thats how I manage sleeping
 ## coming soon
 - interfaces for modules to provide gameserver info
 - mode-agnostic card format if you don't want the themed ones
+- complete rewrite
